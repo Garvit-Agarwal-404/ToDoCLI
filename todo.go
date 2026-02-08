@@ -18,7 +18,7 @@ type Todo struct {
 	CompeletedAt *time.Time
 }
 
-type Todos []Todo // apan ne ek Todo type  ka slice banaya bhai typed as Typos
+type Todos []Todo // apan ne ek Todo type  ka slice banaya hai typed as Todos
 
 // ek add method banaya hai to add a task
 func (T *Todos) add(title string) {
@@ -36,8 +36,8 @@ func (T *Todos) add(title string) {
 // to check index for operations like remove, edit,or toggle to see if  it is valid
 func (T *Todos) validateIndex(index int) error {
 	if index < 0 || index >= len(*T) {
-		err := errors.New("invalid index")
-		fmt.Println(err.Error())
+		err := errors.New("invalid index") //custom error banaya
+		fmt.Println(err.Error())           // aur print kara diya use
 		return err
 	}
 	return nil
@@ -49,7 +49,7 @@ func (T *Todos) delete(index int) error {
 		return err
 
 	}
-	*T = append(t[:index], t[index+1:]...)
+	*T = append(t[:index], t[index+1:]...) // a go type delete trick
 	return nil
 }
 

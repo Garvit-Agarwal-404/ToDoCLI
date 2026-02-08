@@ -23,7 +23,7 @@ func (s *Storage[T]) Save(data T) error {
 	if err != nil {
 		return err
 	}
-	return os.WriteFile(s.Filename, fileData, 0644)
+	return os.WriteFile(s.Filename, fileData, 0644) // what is 0644
 }
 
 // load func-> pointer reiever function
